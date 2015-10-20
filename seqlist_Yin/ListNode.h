@@ -10,7 +10,8 @@ public:
 	NODETYPE getdata() const;
 private:
 	NODETYPE data;
-	ListNode< NODETYPE > *nextPtr; //next node in list 
+	ListNode< NODETYPE > *nextPtr; //next node in list
+	ListNode< NODETYPE > *prevPtr; //previous node in list
 
 	//~ListNode();
 }; //end class ListNode

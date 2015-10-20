@@ -61,6 +61,7 @@ void List< NODETYPE >::insertAtFront( const NODETYPE &value )
    else // List is not empty
    {
       newPtr->nextPtr = firstPtr; // point new node to previous 1st node
+      firstPtr->prevPtr = newPtr; //prevPtr point to new node
       firstPtr = newPtr; // aim firstPtr at new node
    } // end else
 } // end function insertAtFront
@@ -76,6 +77,7 @@ void List< NODETYPE >::insertAtBack( const NODETYPE &value )
    else // List is not empty
    {
       lastPtr->nextPtr = newPtr; // update previous last node
+      newPtr->prevPtr = lastPtr; // 
       lastPtr = newPtr; // new last node
    } // end else
 } // end function insertAtBack
@@ -93,8 +95,10 @@ bool List< NODETYPE >::removeFromFront( NODETYPE &value )
       if ( firstPtr == lastPtr )
          firstPtr = lastPtr = 0; // no nodes remain after removal
       else
+      {
          firstPtr = firstPtr->nextPtr; // point to previous 2nd node
-
+         firstPtr->prevPtr = NULL;
+      }
       value = tempPtr->data; // return data being removed
       delete tempPtr; // reclaim previous front node
       return true; // delete successful
@@ -122,7 +126,7 @@ bool List< NODETYPE >::removeFromBack( NODETYPE &value )
             currentPtr = currentPtr->nextPtr; // move to next node
 
          lastPtr = currentPtr; // remove last node
-         currentPtr->nextPtr = 0; // this is now the last node
+         currentPtr->nextPtr = NULL; // this is now the last node
       } // end else
 
       value = tempPtr->data; // return value from old last node
