@@ -39,7 +39,5 @@ int main(int argc, char const *argv[])
 	outputVector( integer1 );
 
 
-
-
 	return 0;
 }
