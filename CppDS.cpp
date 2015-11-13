@@ -9,6 +9,7 @@ template < typename T >
 bool LinearToLinked（ vector< int > &v, List< T > &listObject ）
 {
 	
+	
 }
 
 template < typename T >
@@ -38,6 +39,7 @@ int main(int argc, char const *argv[])
 	 	 << "integer: " << endl;
 	outputVector( integer1 );
 
+	
 
 	return 0;
 }
