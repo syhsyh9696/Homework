@@ -15,11 +15,9 @@ bool LinearToLinked（ vector< int > &v, List< T > &listObject ）
 template < typename T >
 void outputList ( int a, List< T > &listObject ) const
 {
-	List< T > *tempPtr= getFirstPtr(); //remember to add a function!
+	List< T > *tempPtr = getFirstPtr(); //remember to add a function!
 	for (int i = 0; i < a; ++i)
-	{
 		tempPtr = tempPtr->nextPtr;
-	}
 
 	cout << currentPtr-data << ' ';
 	tempPtr = NULL;
@@ -39,7 +37,19 @@ int main(int argc, char const *argv[])
 	 	 << "integer: " << endl;
 	outputVector( integer1 );
 
-	
+	List<string> testList;
+	testList.push_front("I");
+	testList.push_front("am");
+	testList.push_front("an");
+	testList.push_back("awesome");
+	testList.push_back("boy");
 
+	cout << "There is " << testList.size(); 
+		 << "element in testList" << endl;
+
+	for (int i = 0; i < 5; ++i)
+		outputList( integer1[i], testList )
+
+	std::system("pause");
 	return 0;
 }
