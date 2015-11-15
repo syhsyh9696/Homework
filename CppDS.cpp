@@ -6,16 +6,9 @@
 using namespace std;
 
 template < typename T >
-bool LinearToLinked（ vector< int > &v, List< T > &listObject ）
-{
-	
-	
-}
-
-template < typename T >
 void outputList ( int a, List< T > &listObject ) const
 {
-	List< T > *tempPtr = getFirstPtr(); //remember to add a function!
+	List< T > *tempPtr = listObject; //remember to add a function!
 	for (int i = 0; i < a; ++i)
 		tempPtr = tempPtr->nextPtr;
 
@@ -49,7 +42,7 @@ int main(int argc, char const *argv[])
 
 	for (int i = 0; i < 5; ++i)
 		outputList( integer1[i], testList )
-	
+
 
 	std::system("pause");
 	return 0;
