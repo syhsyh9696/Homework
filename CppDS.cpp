@@ -1,23 +1,25 @@
 #include "iostream"
 #include "vector"
-#include "List"
+#include "list"
 #include "string"
+#include "iomanip"
 
 using namespace std;
 
 template < typename T >
-void outputList ( int a, List< T > &listObject ) const
+void outputList ( int a, list< T > &listObject ) 
 {
-	List< T > *tempPtr = listObject; //remember to add a function!
+	list< T > *tempPtr = listObject; //remember to add a function!
 	for (int i = 0; i < a; ++i)
 		tempPtr = tempPtr->nextPtr;
 
-	cout << currentPtr-data << ' ';
+	cout << tempPtr->data << ' ';
 	tempPtr = NULL;
 	delete tempPtr;
 }
 
-int main(int argc, char const *argv[])
+using namespace std;
+int main( ) {
 	vector< int > integer1( 5 );
 
 	cout << "Please enter the number of which node you want to display on screen"
@@ -30,21 +32,21 @@ int main(int argc, char const *argv[])
 	 	 << "integer: " << endl;
 	outputVector( integer1 );
 
-	List<strhing> testList;
+	list<string> testList;
 	testList.push_front("I");
 	testList.push_front("am");
 	testList.push_front("an");
 	testList.push_back("awesome");
 	testList.push_back("boy");
 
-	cout << "There is " << testList.size(); 
+	cout << "There is " << testList.size() 
 		 << "element in testList" << endl;
 
 	for (int i = 0; i < 5; ++i)
-		outputList( integer1[i], testList )
+		outputList( integer1[i], testList );
 
 
-	std::system("pause");
+	system("pause");
 	return 0;
 }
 
