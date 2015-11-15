@@ -37,7 +37,7 @@ int main(int argc, char const *argv[])
 	 	 << "integer: " << endl;
 	outputVector( integer1 );
 
-	List<string> testList;
+	List<strhing> testList;
 	testList.push_front("I");
 	testList.push_front("am");
 	testList.push_front("an");
@@ -49,7 +49,9 @@ int main(int argc, char const *argv[])
 
 	for (int i = 0; i < 5; ++i)
 		outputList( integer1[i], testList )
+	
 
 	std::system("pause");
 	return 0;
 }
+
