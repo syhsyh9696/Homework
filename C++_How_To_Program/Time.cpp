@@ -3,7 +3,7 @@
 #include "Time.h"
 
 using namespace std;
-Time:Time(){
+Time::Time(){
 	hour = minute = second = 0;
 }
 
@@ -19,7 +19,7 @@ void Time::printUniversal(){
 
 }
 
-void Time::printUniversal(){
+void Time::printStandard(){
 	cout << ( ( hour == 0 || hour == 12 ) ? 12 :hour % 12 ) << ":"
 		 << setfill('0') << setw(2) << minute << ":" << setw(2)
 		 << second << ( hour < 12 ? "AM" : "PM");
