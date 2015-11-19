@@ -9,7 +9,7 @@ using namespace std;
 template < typename T >
 void outputList ( int a, list< T > &listObject ) 
 {
-	list< T > *tempPtr = listObject; //remember to add a function!
+	list< T > *tempPtr = &listObject; //remember to add a function!
 	for (int i = 0; i < a; ++i)
 		tempPtr = tempPtr->nextPtr;
 
