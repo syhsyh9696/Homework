@@ -5,73 +5,67 @@ using System.Text;
 using System.Threading.Tasks;
 
 namespace ConsoleApplication12 {
-    class StudentInfo_Class {
-        public StudentInfo_Class(int x) {
-            _length = x;
-            _maxcapacity = x;
-            _list = new Student[x]; //?Q
-        }
+         internal class StudentInfo  {
+            private Student[] _list;
+            private int _maxcapacity;
+            private int _length;
 
-        public int  Maxcapacity {
-            get { return _maxcapacity; }
-        }
-        public int Currentlength {
-            get { return _length; }
-        }
-        public int Restlength {
-            get { return (_maxcapacity - _length); }
-        }
-
-        public Student this[string StudentId] {
-            get {
-                for(int i = 0; i<_maxcapacity; ++i) {
-                    if (_list[i].No == StudentId)
-                        return _list[i];
-                }
-                return null;
+            public int Maxcapacity               
+            {
+                get { return _maxcapacity; }
             }
-
-            set {
-                for(int i = 0; i<_maxcapacity; ++i) {
-                    if (_list[i].No == StudentId) {
-                        string Tempname;
-                        string Tempclass;
-                        string Tempscore;
-
-                        Console.WriteLine("Please enter the name of the student: ");
-                        Tempname = Console.ReadLine();
-                        _list[i].Name = Tempname;
-
-                        Console.WriteLine("Please enter the class of the student: ");
-                        Tempclass = Console.ReadLine();
-                        _list[i].Class = Tempclass;
-
-                        Console.WriteLine("Please enter the score of the student: ");
-                        Tempscore = Console.ReadLine();
-                        _list[i].Score = Tempscore;
+            public int Currentlength             
+            {
+                get { return _length; }
+            }
+            public int Restlength             
+            {
+                get { return _maxcapacity - _length; }
+            }
+            public StudentInfo(int maxcapacity)
+            {
+                this._maxcapacity = maxcapacity;
+                _list = new Student[maxcapacity];
+            }
+            public Student this[int index]
+            {
+                get {
+                    if (index < _length) {
+                        return _list[index];
                     }
+                    throw new IndexOutOfRangeException();
+                }
+                set {
+                    if (index < _length) {
+                        _list[index] = value;
+                    }
+                    throw new IndexOutOfRangeException();
                 }
             }
-        } //end Index function
-        
-        public Boolean AddInfo() {
-            if (_maxcapacity == _length)
-                return false;
-            else
+            public bool AddInfo(Student s)
+            {
+                if (Restlength == 0) {
+                    return false;
+                }
+                _list[_length] = s;
+                _length++;
                 return true;
-        }
-
-        public Boolean DeleteInfo(string StudentNo) {
-            for(int i = 0; i < _maxcapacity; ++i) {
-                if (_list[i].No == StudentNo)
-                    return true;
             }
-            return false;
-
+            public bool DeleteInfo(Student s)
+            {
+                int index = 0;
+                while (index < _length) {
+                    if (_list[index] == s) { break; }
+                    index++;
+                }
+                if (index == _length) { return false; }
+                while ((index + 1) < _length) {
+                    _list[index] = _list[index + 1];
+                    index++;
+                }
+                _list[index] = null;
+                _length--;
+                return true;
+            }
         }
-
-        private Student[] _list; //?Q
-        private int _maxcapacity;
-        private int _length;
     }
-}
